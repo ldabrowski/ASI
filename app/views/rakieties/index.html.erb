@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rakieties</h1>
+
+<table class = "table table-bordered table-striped text-center">
+  <thead>
+    <tr>
+      <th class="text-center">Marka</th>
+      <th class="text-center">Model</th>
+      <th class="text-center"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rakieties.each do |rakiety| %>
+      <tr>
+        <td><%= rakiety.marka %></td>
+        <td><%= rakiety.model %></td>
+        <td><%= link_to 'Show', rakiety, class: "btn btn-xs btn-info" %> <%= link_to 'Edit', edit_rakiety_path(rakiety), class: "btn btn-xs btn-info" %> <%= link_to 'Destroy', rakiety, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-info" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= will_paginate @posts %>
+<br>
+<%= link_to 'Nowa Rakieta', new_rakiety_path %>
+
